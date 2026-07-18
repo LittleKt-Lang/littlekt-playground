@@ -18,7 +18,7 @@
     </select>
     <button id="btn-clear" title="Clear output">Clear</button>
     <span class="spacer"></span>
-    <span style="font-size:11px;color:var(--text-muted)">Ctrl+Enter</span>
+    <span style="font-size:11px;color:var(--text-muted)">Ctrl+Space complete · Ctrl+Enter run</span>
   </div>
 
   <!-- Panels -->
@@ -28,18 +28,9 @@
       <div class="panel-header">Code</div>
       <div id="editor-wrap">
         <div id="line-numbers">1</div>
-        <textarea id="editor"
-          placeholder="// Write LittleKt code here..."
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-        >fun main(): Unit {
-    println("Hello, LittleKt!")
-    println("Welcome to the playground.")
-}
-
-main()</textarea>
+        <div id="editor" contenteditable="true" spellcheck="false"
+          data-placeholder="// Write LittleKt code here..."></div>
+        <div id="completion-menu"></div>
       </div>
     </div>
 

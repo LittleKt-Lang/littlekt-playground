@@ -10,10 +10,6 @@
   --red: #f38ba8;
   --yellow: #f9e2af;
   --orange: #fab387;
-  --keyword: #cba6f7;
-  --string: #a6e3a1;
-  --number: #fab387;
-  --comment: #6c7086;
   --radius: 8px;
   --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
 }
@@ -144,7 +140,6 @@ body {
   color: var(--text);
   border: none;
   outline: none;
-  resize: none;
   font-family: var(--mono);
   font-size: 14px;
   line-height: 1.6;
@@ -154,7 +149,53 @@ body {
   white-space: pre;
   caret-color: var(--accent);
 }
-#editor::placeholder { color: var(--text-muted); }
+#editor:empty::before {
+  content: attr(data-placeholder);
+  color: var(--text-muted);
+}
+#editor::selection { background: rgba(203,166,247,0.25); }
+
+/* ---- syntax highlighting ---- */
+#editor .kw { color: #cba6f7; }
+#editor .ty { color: #89b4fa; }
+#editor .s  { color: #a6e3a1; }
+#editor .c  { color: #6c7086; font-style: italic; }
+#editor .n  { color: #fab387; }
+#editor .f  { color: #89dceb; }
+#editor .tm { color: #f5c842; }
+#editor .te { color: #f5c842; }
+
+/* ---- completion dropdown ---- */
+#completion-menu {
+  position: absolute;
+  z-index: 100;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  min-width: 180px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+#completion-menu .item {
+  padding: 5px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+#completion-menu .item:hover,
+#completion-menu .item.active {
+  background: #383860;
+}
+#completion-menu .item .label { color: var(--text); }
+#completion-menu .item .kind {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-left: 16px;
+}
 
 /* ---- output ---- */
 #output-wrap {
