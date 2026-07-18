@@ -1,0 +1,12 @@
+{
+  "name": "littlekt-playground",
+  "version": "1.0.0",
+  "description": "Browser playground for the LittleKt programming language",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "keywords": ["littlekt", "playground", "programming-language"],
+  "license": "MIT"
+}

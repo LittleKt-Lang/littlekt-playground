@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LittleKt Playground</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+  <!-- Toolbar -->
+  <div id="toolbar">
+    <span class="brand">Little<span>Kt</span> Playground</span>
+    <button id="btn-run" title="Run (Ctrl+Enter)">▶ Run</button>
+    <select id="sel-example" title="Load an example">
+      <option value="">— Examples —</option>
+    </select>
+    <button id="btn-clear" title="Clear output">Clear</button>
+    <span class="spacer"></span>
+    <span style="font-size:11px;color:var(--text-muted)">Ctrl+Enter</span>
+  </div>
+
+  <!-- Panels -->
+  <div id="panels">
+    <!-- Editor -->
+    <div id="editor-panel">
+      <div class="panel-header">Code</div>
+      <div id="editor-wrap">
+        <div id="line-numbers">1</div>
+        <textarea id="editor"
+          placeholder="// Write LittleKt code here..."
+          spellcheck="false"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+        >fun main(): Unit {
+    println("Hello, LittleKt!")
+    println("Welcome to the playground.")
+}
+
+main()</textarea>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <div id="output-panel">
+      <div class="panel-header">Output</div>
+      <div id="output-wrap">
+        <div class="info">// Press ▶ Run or Ctrl+Enter to execute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div id="statusbar">
+    <span id="status-indicator" class="status-ok">● Ready</span>
+    <span id="status-time"></span>
+    <span id="status-lines"></span>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
